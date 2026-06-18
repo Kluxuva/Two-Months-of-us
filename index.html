@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Happy 2 Months Bachuu ❤️</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Happy 2 Months</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  --pink1: #ff4f81;
-  --pink2: #ff8fab;
-  --pink3: #ffd6e7;
-  --pink4: #fff0f7;
-  --deep: #c9184a;
-  --soft: #ffb3c6;
+  --rose:    #c9184a;
+  --blush:   #ff6b9d;
+  --petal:   #fde8ef;
+  --soft:    #fff4f8;
+  --muted:   #e8b4c8;
+  --ink:     #3a1a26;
+  --gray:    #9a7080;
 }
 
 body {
   overflow: hidden;
-  font-family: 'Nunito', sans-serif;
-  background: var(--pink3);
+  font-family: 'DM Sans', sans-serif;
+  background: var(--petal);
   touch-action: none;
 }
 
@@ -37,186 +38,233 @@ canvas { display: block; }
 
 /* ── START SCREEN ── */
 #startScreen {
-  background: linear-gradient(135deg, rgba(255,143,171,0.96) 0%, rgba(255,79,129,0.96) 100%);
-  flex-direction: column;
-  gap: 0;
+  background: rgba(253, 232, 239, 0.96);
+  backdrop-filter: blur(12px);
 }
 
 .start-card {
   background: white;
-  border-radius: 32px;
-  padding: 36px 28px 28px;
-  max-width: 360px;
+  border-radius: 24px;
+  padding: 48px 36px 40px;
+  max-width: 340px;
   width: 88%;
   text-align: center;
-  box-shadow: 0 20px 60px rgba(201,24,74,0.25);
+  box-shadow: 0 32px 80px rgba(201,24,74,0.12), 0 2px 8px rgba(201,24,74,0.06);
   position: relative;
-  animation: floatIn 0.7s cubic-bezier(.34,1.56,.64,1) both;
+  animation: riseIn 0.8s cubic-bezier(.22,1,.36,1) both;
+  border: 1px solid rgba(201,24,74,0.08);
 }
 
-@keyframes floatIn {
-  from { opacity:0; transform: translateY(60px) scale(0.85); }
-  to   { opacity:1; transform: translateY(0)   scale(1); }
+@keyframes riseIn {
+  from { opacity:0; transform: translateY(40px); }
+  to   { opacity:1; transform: translateY(0); }
 }
 
-.start-card .emoji-row {
-  font-size: 40px;
-  margin-bottom: 8px;
-  animation: bounce 1.5s infinite alternate ease-in-out;
+.monogram {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
 }
-@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+.monogram svg { width: 28px; height: 28px; }
 
 .start-card h1 {
-  font-family: 'Pacifico', cursive;
-  color: var(--pink1);
-  font-size: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink);
+  font-size: 28px;
+  letter-spacing: 0.02em;
   margin-bottom: 10px;
+  line-height: 1.2;
 }
 
-.start-card p {
-  color: #666;
-  line-height: 1.7;
-  font-size: 15px;
-}
-
-.start-card .hint {
-  margin-top: 14px;
-  background: var(--pink4);
-  border-radius: 16px;
-  padding: 10px 14px;
+.start-card .sub {
+  color: var(--gray);
   font-size: 13px;
-  color: var(--deep);
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.divider {
+  width: 40px; height: 1px;
+  background: var(--muted);
+  margin: 20px auto;
+}
+
+.hint-text {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.hint-text strong {
+  color: var(--rose);
+  font-weight: 500;
 }
 
 .btn {
-  margin-top: 22px;
-  padding: 14px 36px;
-  border: none;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ff4f81, #ff8fab);
-  color: white;
-  font-family: 'Pacifico', cursive;
-  font-size: 18px;
+  margin-top: 28px;
+  padding: 14px 32px;
+  border: 1.5px solid var(--rose);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--rose);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(255,79,129,0.4);
-  transition: transform 0.15s, box-shadow 0.15s;
-  letter-spacing: 0.5px;
-  display: block;
   width: 100%;
+  transition: background 0.2s, color 0.2s;
 }
-.btn:active { transform: scale(0.96); box-shadow: 0 4px 10px rgba(255,79,129,0.3); }
+.btn:hover, .btn:active {
+  background: var(--rose);
+  color: white;
+}
 
 /* ── END SCREEN ── */
 #endScreen {
   display: none;
-  background: linear-gradient(135deg, rgba(255,175,200,0.97) 0%, rgba(255,79,129,0.97) 100%);
-  flex-direction: column;
+  background: rgba(253,232,239,0.97);
+  backdrop-filter: blur(12px);
   overflow-y: auto;
-  padding: 20px 0;
+  padding: 24px 0;
+  align-items: flex-start;
 }
 
 .end-card {
   background: white;
-  border-radius: 32px;
-  padding: 36px 28px 32px;
+  border-radius: 24px;
+  padding: 48px 32px 40px;
   max-width: 380px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 20px 60px rgba(201,24,74,0.3);
-  animation: popIn 0.6s cubic-bezier(.34,1.56,.64,1) both;
-  position: relative;
-  overflow: hidden;
-}
-@keyframes popIn {
-  from { opacity:0; transform: scale(0.7) rotate(-3deg); }
-  to   { opacity:1; transform: scale(1) rotate(0deg); }
+  box-shadow: 0 32px 80px rgba(201,24,74,0.12);
+  animation: riseIn 0.7s cubic-bezier(.22,1,.36,1) both;
+  border: 1px solid rgba(201,24,74,0.08);
+  margin: auto;
 }
 
-.confetti-strip {
-  position: absolute; top:0; left:0; right:0;
-  height: 8px;
-  background: repeating-linear-gradient(90deg,
-    #ff4f81 0px, #ff4f81 12px,
-    #ffb3c6 12px, #ffb3c6 24px,
-    #ff8fab 24px, #ff8fab 36px,
-    #fff 36px, #fff 48px);
+.end-card .eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blush);
+  margin-bottom: 12px;
 }
 
 .end-card h1 {
-  font-family: 'Pacifico', cursive;
-  color: var(--pink1);
-  font-size: 26px;
-  margin: 12px 0 6px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink);
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.end-card .date-note {
+  font-size: 12px;
+  color: var(--gray);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  margin-bottom: 28px;
 }
 
 .love-list {
   list-style: none;
   text-align: left;
-  margin: 16px 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
+  border-top: 1px solid var(--petal);
 }
 .love-list li {
-  background: var(--pink4);
-  border-radius: 14px;
-  padding: 10px 14px;
+  padding: 14px 4px;
   font-size: 14px;
-  color: #444;
+  color: var(--ink);
+  font-weight: 300;
   display: flex;
   align-items: center;
-  gap: 10px;
-  animation: slideIn 0.5s ease both;
+  gap: 14px;
+  border-bottom: 1px solid var(--petal);
+  animation: fadeUp 0.5s ease both;
+  line-height: 1.4;
 }
-.love-list li:nth-child(1) { animation-delay:0.1s; }
-.love-list li:nth-child(2) { animation-delay:0.2s; }
-.love-list li:nth-child(3) { animation-delay:0.3s; }
-.love-list li:nth-child(4) { animation-delay:0.4s; }
-@keyframes slideIn {
-  from { opacity:0; transform: translateX(-20px); }
-  to   { opacity:1; transform: translateX(0); }
-}
-.love-list .icon { font-size: 22px; flex-shrink: 0; }
-
-.end-tagline {
-  font-family: 'Pacifico', cursive;
-  color: var(--deep);
-  font-size: 20px;
-  margin-top: 18px;
+.love-list li:nth-child(1){animation-delay:.05s}
+.love-list li:nth-child(2){animation-delay:.12s}
+.love-list li:nth-child(3){animation-delay:.19s}
+.love-list li:nth-child(4){animation-delay:.26s}
+.love-list li:nth-child(5){animation-delay:.33s}
+.love-list li:nth-child(6){animation-delay:.40s}
+.love-list li:nth-child(7){animation-delay:.47s}
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(12px); }
+  to   { opacity:1; transform: translateY(0); }
 }
 
-/* ── ANIMATIONS ON CANVAS LAYER ── */
-#floaties {
-  position: fixed; inset: 0;
-  pointer-events: none;
-  z-index: 5;
+.love-list .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--muted);
+  min-width: 20px;
+  flex-shrink: 0;
 }
 
-/* ── COMPLIMENT TOAST ── */
+.end-footer {
+  margin-top: 28px;
+}
+.end-footer p {
+  font-size: 12px;
+  color: var(--gray);
+  font-weight: 300;
+  line-height: 1.8;
+  font-style: italic;
+}
+.end-footer .sign {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--rose);
+  margin-top: 16px;
+  display: block;
+}
+
+/* ── TOAST ── */
 #toast {
   position: fixed;
-  top: 80px;
+  top: 72px;
   left: 50%;
-  transform: translateX(-50%) scale(0);
-  background: linear-gradient(135deg, #ff4f81, #c9184a);
-  color: white;
-  font-family: 'Pacifico', cursive;
-  font-size: 16px;
-  padding: 12px 24px;
-  border-radius: 999px;
+  transform: translateX(-50%) translateY(-8px);
+  background: white;
+  color: var(--rose);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  padding: 10px 24px;
+  border-radius: 4px;
   z-index: 30;
-  box-shadow: 0 8px 24px rgba(255,79,129,0.5);
-  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), opacity 0.3s;
+  box-shadow: 0 8px 32px rgba(201,24,74,0.14);
+  border: 1px solid rgba(201,24,74,0.12);
   opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
   white-space: nowrap;
+  pointer-events: none;
 }
 #toast.show {
-  transform: translateX(-50%) scale(1);
   opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
-/* ── HEARTS PARTICLE LAYER ── */
+/* ── PARTICLES ── */
 #particles {
   position: fixed; inset: 0;
   pointer-events: none;
@@ -225,324 +273,362 @@ canvas { display: block; }
 }
 .ph {
   position: absolute;
-  font-size: 18px;
-  animation: riseHeart 2s ease-out forwards;
   pointer-events: none;
+  animation: riseHeart 2s ease-out forwards;
 }
 @keyframes riseHeart {
-  0%   { opacity:1; transform: translateY(0) scale(1) rotate(0deg); }
-  100% { opacity:0; transform: translateY(-120px) scale(0.5) rotate(30deg); }
+  0%   { opacity: 0.8; transform: translateY(0) scale(1); }
+  100% { opacity: 0;   transform: translateY(-100px) scale(0.4); }
 }
 
-/* ── TEDDY / CAKE END ANIM ── */
-.big-emoji-row {
-  font-size: 48px;
-  line-height: 1;
-  margin: 8px 0 4px;
-  animation: wiggle 1.2s infinite alternate ease-in-out;
-}
-@keyframes wiggle {
-  0%  { transform: rotate(-6deg) scale(1); }
-  100%{ transform: rotate(6deg) scale(1.08); }
-}
-
-/* ── SCORE BG ── */
+/* ── SCORE BADGE ── */
 #scoreBadge {
   position: fixed;
-  top: 16px;
-  left: 16px;
+  top: 20px; left: 20px;
   background: white;
-  border-radius: 50px;
-  padding: 6px 18px;
-  font-family: 'Pacifico', cursive;
-  color: var(--pink1);
-  font-size: 20px;
-  box-shadow: 0 4px 16px rgba(255,79,129,0.25);
+  border-radius: 4px;
+  padding: 6px 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--rose);
+  font-size: 18px;
+  box-shadow: 0 4px 16px rgba(201,24,74,0.1);
+  border: 1px solid rgba(201,24,74,0.1);
   z-index: 10;
   display: none;
   align-items: center;
   gap: 8px;
+  letter-spacing: 0.02em;
 }
 
-/* ── PROGRESS BAR ── */
+/* ── PROGRESS ── */
 #progressWrap {
   position: fixed;
-  bottom: 20px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255,255,255,0.7);
-  border-radius: 999px;
-  padding: 6px 16px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--deep);
+  background: rgba(255,255,255,0.85);
+  border-radius: 4px;
+  padding: 8px 20px;
   z-index: 10;
   display: none;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
-  box-shadow: 0 4px 14px rgba(255,79,129,0.18);
-  max-width: 90vw;
+  box-shadow: 0 4px 20px rgba(201,24,74,0.1);
+  border: 1px solid rgba(201,24,74,0.08);
 }
 .pip {
-  width: 18px; height: 18px;
+  width: 6px; height: 6px;
   border-radius: 50%;
-  background: #ffd6e7;
-  border: 2px solid var(--soft);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  transition: background 0.4s, border-color 0.4s;
+  background: var(--muted);
+  opacity: 0.4;
+  transition: background 0.4s, opacity 0.4s, transform 0.3s;
   flex-shrink: 0;
 }
-.pip.done { background: var(--pink1); border-color: var(--deep); }
+.pip.done {
+  background: var(--rose);
+  opacity: 1;
+  transform: scale(1.3);
+}
 </style>
 </head>
 <body>
 
 <canvas id="game"></canvas>
-<div id="floaties"></div>
 <div id="particles"></div>
 <div id="toast"></div>
 
-<div id="scoreBadge">❤️ <span id="scoreNum">0</span></div>
-
+<div id="scoreBadge"><span id="scoreNum">0</span> <span style="font-size:13px;color:var(--muted);font-style:normal;font-family:'DM Sans'">/ 7</span></div>
 <div id="progressWrap"></div>
 
 <!-- START SCREEN -->
 <div class="overlay" id="startScreen">
   <div class="start-card">
-    <div class="emoji-row">❤️🐣❤️</div>
-    <h1>Hi Bachuu! 🥺</h1>
-    <p>A tiny love adventure<br>just for you ✨</p>
-    <div class="hint">
-      Tap / click anywhere to fly 💖<br>
-      Score <b>7</b> to unlock your surprise 🎁
+    <div class="monogram">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 24s-9-5.5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12z" stroke="#c9184a" stroke-width="1.2" fill="none"/>
+      </svg>
     </div>
-    <button class="btn" id="startBtn">Let's Fly! ❤️</button>
+    <h1>for you, Bachuu</h1>
+    <p class="sub">a small love game</p>
+    <div class="divider"></div>
+    <p class="hint-text">
+      Tap to fly through the petals<br>
+      Score <strong>7</strong> to unlock your surprise
+    </p>
+    <button class="btn" id="startBtn">Begin</button>
   </div>
 </div>
 
 <!-- END SCREEN -->
 <div class="overlay" id="endScreen">
   <div class="end-card">
-    <div class="confetti-strip"></div>
-    <div class="big-emoji-row">🎂🧸🎂</div>
-    <h1>Happy 2 Months Bachuu! 🥺❤️</h1>
-    <p style="color:#888;font-size:14px;margin-bottom:4px">You made it! Here's everything I love about you:</p>
+    <p class="eyebrow">Two months together</p>
+    <h1>Happy 2 Months, Bachuu</h1>
+    <p class="date-note">Things I love about you</p>
     <ul class="love-list" id="loveList"></ul>
-    <p style="color:#aaa;font-size:13px;line-height:1.6;margin-top:6px">
-      These two months have been the most beautiful ones.<br>
-      Thank you for being <em>you</em>. 🫶
-    </p>
-    <p class="end-tagline">I Love You ❤️</p>
+    <div class="end-footer">
+      <p>These two months have been the most beautiful ones.<br>Thank you for being you.</p>
+      <span class="sign">I love you</span>
+    </div>
   </div>
 </div>
 
 <script>
-// ─────────────────────────────────────────────
-//  CONFIG
-// ─────────────────────────────────────────────
 const SCORE_GOAL = 7;
 
 const THINGS_I_LOVE = [
-  { icon:"👀", text:"Your eyes — they literally sparkle" },
-  { icon:"😂", text:"Your laugh that makes me laugh" },
-  { icon:"🫂", text:"How your hugs feel like home" },
-  { icon:"💬", text:"The way you text me good morning" },
-  { icon:"🌙", text:"Late night calls with you" },
-  { icon:"😊", text:"Your smile that fixes everything" },
-  { icon:"💖", text:"The way you care so deeply" },
+  { num:"i",   text:"Your eyes — they literally sparkle" },
+  { num:"ii",  text:"Your laugh that makes me laugh too" },
+  { num:"iii", text:"How your hugs feel like home" },
+  { num:"iv",  text:"The way you text me good morning" },
+  { num:"v",   text:"Late night calls with you" },
+  { num:"vi",  text:"Your smile that fixes everything" },
+  { num:"vii", text:"The way you care so deeply" },
 ];
 
 const COMPLIMENTS = [
-  "Your eyes are ✨",
-  "That laugh tho 😂💕",
-  "Hugs level: 100 🫂",
-  "Good morning texts 🌅",
-  "Late night calls 🌙",
-  "That smile 😊💖",
-  "You care so much 💝",
+  "your eyes",
+  "that laugh",
+  "your hugs",
+  "good morning texts",
+  "late night calls",
+  "that smile",
+  "the way you care",
 ];
 
-// ─────────────────────────────────────────────
-//  CANVAS SETUP
-// ─────────────────────────────────────────────
+// ── CANVAS ──
 const canvas = document.getElementById("game");
 const ctx    = canvas.getContext("2d");
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 resize();
 window.addEventListener("resize", resize);
 
-// ─────────────────────────────────────────────
-//  GAME STATE
-// ─────────────────────────────────────────────
-let started  = false;
-let finished = false;
-let score    = 0;
-let pipes    = [];
-let frame    = 0;
+// ── STATE ──
+let started = false, finished = false;
+let score = 0, pipes = [], frame = 0;
+const bird = { x:90, y:0, vy:0 };
 
-const bird = { x:90, y:250, vy:0, dead:false };
-const G       = 0.12;
-const FLAP    = -4.0;
-const MAX_VY  = 4;
-const PIPE_W  = 68;
-const GAP     = 400;
-const SPEED   = 1.7;
+// ── PHYSICS ──
+const G        = 0.12;
+const FLAP     = -4.0;
+const MAX_VY   = 4;
+const PIPE_W   = 56;
+const GAP      = 360;
+const SPEED    = 1.7;
+const PIPE_INT = 250;
 
-// ─────────────────────────────────────────────
-//  BACKGROUND ELEMENTS
-// ─────────────────────────────────────────────
+// ── CLOUDS ──
 const clouds = [];
 function initClouds() {
-  for(let i=0;i<6;i++) clouds.push({
+  for(let i=0;i<5;i++) clouds.push({
     x: Math.random()*canvas.width,
-    y: 40 + Math.random()*200,
-    s: 0.7 + Math.random()*0.6,
-    spd: 0.2 + Math.random()*0.3
+    y: 30 + Math.random()*180,
+    w: 60 + Math.random()*60,
+    spd: 0.15 + Math.random()*0.2,
+    a: 0.04 + Math.random()*0.04
   });
 }
 initClouds();
 
 function updateClouds() {
-  clouds.forEach(c => { c.x -= c.spd; if(c.x < -120) c.x = canvas.width+80; });
+  clouds.forEach(c => { c.x -= c.spd; if(c.x < -160) c.x = canvas.width+100; });
 }
 
-function drawBackground() {
+// ── DRAW BG ──
+function drawBg() {
+  // soft gradient
   const g = ctx.createLinearGradient(0,0,0,canvas.height);
-  g.addColorStop(0,"#ffe0ee");
-  g.addColorStop(1,"#fff5f9");
+  g.addColorStop(0,"#fde8ef");
+  g.addColorStop(1,"#fff9fb");
   ctx.fillStyle = g;
   ctx.fillRect(0,0,canvas.width,canvas.height);
 
-  // ambient hearts
-  ctx.save();
-  ctx.globalAlpha = 0.07;
-  ctx.font = "30px Arial";
-  const positions = [[80,120],[canvas.width*0.4,200],[canvas.width*0.7,80],[canvas.width-60,180]];
-  positions.forEach(([x,y]) => {
-    const t = Math.sin(frame*0.025 + x)*6;
-    ctx.fillText("❤️", x, y+t);
+  // clouds as soft blurs
+  clouds.forEach(c => {
+    ctx.save();
+    ctx.globalAlpha = c.a;
+    ctx.fillStyle = "#c9184a";
+    ctx.beginPath();
+    ctx.ellipse(c.x, c.y, c.w, c.w*0.4, 0, 0, Math.PI*2);
+    ctx.fill();
+    ctx.restore();
   });
+
+  // faint grid lines (editorial feel)
+  ctx.save();
+  ctx.globalAlpha = 0.025;
+  ctx.strokeStyle = "#c9184a";
+  ctx.lineWidth = 1;
+  for(let y=0; y<canvas.height; y+=60) {
+    ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(canvas.width,y); ctx.stroke();
+  }
   ctx.restore();
 }
 
-function drawCloud(c) {
+// ── DRAW BIRD ──
+function drawBird() {
+  const angle = Math.min(Math.max(bird.vy * 2.5, -35), 45);
   ctx.save();
-  ctx.translate(c.x, c.y);
-  ctx.scale(c.s, c.s);
-  ctx.fillStyle = "rgba(255,255,255,0.8)";
+  ctx.translate(bird.x, bird.y);
+  ctx.rotate(angle * Math.PI/180);
+  // draw a clean SVG-style heart in canvas
+  const s = 1 + Math.sin(frame*0.09)*0.04;
+  ctx.scale(s, s);
+  ctx.fillStyle = "#c9184a";
   ctx.beginPath();
-  ctx.arc(0,0,30,0,Math.PI*2);
-  ctx.arc(28,-10,24,0,Math.PI*2);
-  ctx.arc(55,0,28,0,Math.PI*2);
-  ctx.arc(28,10,22,0,Math.PI*2);
+  const hw = 14;
+  ctx.moveTo(0, hw*0.4);
+  ctx.bezierCurveTo(-hw*1.5, -hw*0.6, -hw*1.5, -hw*1.2, 0, -hw*0.4);
+  ctx.bezierCurveTo(hw*1.5, -hw*1.2, hw*1.5, -hw*0.6, 0, hw*0.4);
   ctx.fill();
   ctx.restore();
 }
 
-// ─────────────────────────────────────────────
-//  BIRD (heart)
-// ─────────────────────────────────────────────
-function drawBird() {
-  const angle = Math.min(Math.max(bird.vy * 3, -40), 50);
-  ctx.save();
-  ctx.translate(bird.x, bird.y);
-  ctx.rotate(angle * Math.PI/180);
-  const pulse = 1 + Math.sin(frame * 0.1) * 0.06;
-  ctx.scale(pulse, pulse);
-  ctx.font = "40px Arial";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText("❤️", 0, 0);
-  ctx.restore();
-}
-
-// ─────────────────────────────────────────────
-//  PIPES
-// ─────────────────────────────────────────────
+// ── PIPES ──
 function mkPipe() {
-  const top = 80 + Math.random()*(canvas.height - GAP - 160);
+  const minTop = 80;
+  const maxTop = canvas.height - GAP - 80;
+  const top = minTop + Math.random()*(maxTop - minTop);
   pipes.push({ x: canvas.width+20, top, bottom: top+GAP, passed:false });
 }
 
 let pipeTimer = 0;
-const PIPE_INTERVAL = 150; // frames
 
 function updatePipes() {
   pipeTimer++;
-  if(pipeTimer >= PIPE_INTERVAL) { mkPipe(); pipeTimer=0; }
+  if(pipeTimer >= PIPE_INT) { mkPipe(); pipeTimer=0; }
 
   pipes.forEach(p => {
     p.x -= SPEED;
     if(!p.passed && p.x + PIPE_W < bird.x) {
-      p.passed = true;
-      score++;
+      p.passed = true; score++;
       onScore();
     }
-  });
-
-  // collision
-  pipes.forEach(p => {
-    if(bird.x+16 > p.x && bird.x-16 < p.x+PIPE_W &&
-      (bird.y-16 < p.top || bird.y+16 > p.bottom)) {
+    // collision (slightly forgiving hitbox)
+    if(bird.x+12 > p.x && bird.x-12 < p.x+PIPE_W &&
+       (bird.y-12 < p.top || bird.y+12 > p.bottom)) {
       resetBird();
     }
   });
 
-  pipes = pipes.filter(p => p.x > -120);
+  pipes = pipes.filter(p => p.x > -140);
 }
 
 function drawPipes() {
   pipes.forEach(p => {
-    // top pipe
-    const gt = ctx.createLinearGradient(p.x,0,p.x+PIPE_W,0);
-    gt.addColorStop(0,"#ff6fa1");
-    gt.addColorStop(0.5,"#ff8fab");
-    gt.addColorStop(1,"#ffb3c6");
-    ctx.fillStyle = gt;
+    // top
+    ctx.fillStyle = "#e8b4c8";
     ctx.beginPath();
-    ctx.roundRect(p.x, 0, PIPE_W, p.top, [0,0,14,14]);
+    ctx.roundRect(p.x, 0, PIPE_W, p.top, [0,0,8,8]);
+    ctx.fill();
+    // subtle inner highlight
+    ctx.fillStyle = "rgba(255,255,255,0.25)";
+    ctx.beginPath();
+    ctx.roundRect(p.x+6, 0, 10, p.top, [0,0,4,4]);
     ctx.fill();
 
-    // heart on cap
-    ctx.font = "20px Arial";
-    ctx.textAlign = "center";
-    ctx.fillText("💕", p.x + PIPE_W/2, p.top - 10);
-
-    // bottom pipe
-    const gb = ctx.createLinearGradient(p.x,0,p.x+PIPE_W,0);
-    gb.addColorStop(0,"#ff6fa1");
-    gb.addColorStop(0.5,"#ff8fab");
-    gb.addColorStop(1,"#ffb3c6");
-    ctx.fillStyle = gb;
+    // bottom
+    ctx.fillStyle = "#e8b4c8";
     ctx.beginPath();
-    ctx.roundRect(p.x, p.bottom, PIPE_W, canvas.height-p.bottom, [14,14,0,0]);
+    ctx.roundRect(p.x, p.bottom, PIPE_W, canvas.height-p.bottom, [8,8,0,0]);
+    ctx.fill();
+    ctx.fillStyle = "rgba(255,255,255,0.25)";
+    ctx.beginPath();
+    ctx.roundRect(p.x+6, p.bottom, 10, canvas.height-p.bottom, [4,4,0,0]);
     ctx.fill();
 
-    ctx.font = "20px Arial";
-    ctx.fillText("💕", p.x + PIPE_W/2, p.bottom + 26);
+    // small heart ornament
+    drawSmallHeart(p.x + PIPE_W/2, p.top - 14, 5);
+    drawSmallHeart(p.x + PIPE_W/2, p.bottom + 14, 5);
   });
 }
 
-// ─────────────────────────────────────────────
-//  SCORE
-// ─────────────────────────────────────────────
-function drawScore() {
-  document.getElementById("scoreNum").textContent = score;
+function drawSmallHeart(x, y, hw) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.fillStyle = "rgba(201,24,74,0.35)";
+  ctx.beginPath();
+  ctx.moveTo(0, hw*0.4);
+  ctx.bezierCurveTo(-hw*1.5,-hw*0.6,-hw*1.5,-hw*1.2,0,-hw*0.4);
+  ctx.bezierCurveTo(hw*1.5,-hw*1.2,hw*1.5,-hw*0.6,0,hw*0.4);
+  ctx.fill();
+  ctx.restore();
 }
 
-// ─────────────────────────────────────────────
-//  PROGRESS PIPS
-// ─────────────────────────────────────────────
+// ── RESET ──
+function resetBird() {
+  bird.y = canvas.height/2; bird.vy = 0;
+  pipes = []; pipeTimer = 0;
+}
+
+// ── ON SCORE ──
+function onScore() {
+  updatePips();
+  updateScoreBadge();
+  showToast(COMPLIMENTS[Math.min(score-1, COMPLIMENTS.length-1)]);
+  spawnPetals(bird.x, bird.y);
+  if(score >= SCORE_GOAL) { finished = true; setTimeout(showEnd, 700); }
+}
+
+function updateScoreBadge() { document.getElementById("scoreNum").textContent = score; }
+
+// ── TOAST ──
+let toastTimer = null;
+const toast = document.getElementById("toast");
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+}
+
+// ── PETALS (canvas-drawn, no emoji) ──
+const particles = document.getElementById("particles");
+function spawnPetals(x, y) {
+  for(let i=0;i<10;i++) {
+    const p = document.createElement("canvas");
+    p.width = 14; p.height = 14;
+    const pc = p.getContext("2d");
+    const hw = 5 + Math.random()*2;
+    pc.fillStyle = `rgba(201,24,74,${0.4+Math.random()*0.4})`;
+    pc.beginPath();
+    pc.moveTo(7, 7+hw*0.4);
+    pc.bezierCurveTo(7-hw*1.5,7-hw*0.6, 7-hw*1.5,7-hw*1.2, 7,7-hw*0.4);
+    pc.bezierCurveTo(7+hw*1.5,7-hw*1.2, 7+hw*1.5,7-hw*0.6, 7,7+hw*0.4);
+    pc.fill();
+    p.className = "ph";
+    p.style.left = (x - 20 + Math.random()*40) + "px";
+    p.style.top  = (y + 10) + "px";
+    p.style.animationDuration = (1.4 + Math.random()) + "s";
+    p.style.animationDelay    = (Math.random()*0.3) + "s";
+    particles.appendChild(p);
+    setTimeout(() => p.remove(), 2600);
+  }
+}
+
+// ── END ──
+function showEnd() {
+  const ul = document.getElementById("loveList");
+  ul.innerHTML = "";
+  THINGS_I_LOVE.forEach(item => {
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="num">${item.num}</span><span>${item.text}</span>`;
+    ul.appendChild(li);
+  });
+  document.getElementById("endScreen").style.display = "flex";
+  for(let i=0;i<20;i++) setTimeout(() => {
+    spawnPetals(50+Math.random()*(window.innerWidth-100), 100+Math.random()*(window.innerHeight-200));
+  }, i*100);
+}
+
+// ── PIPS ──
 const progressWrap = document.getElementById("progressWrap");
 function buildPips() {
-  progressWrap.innerHTML = "💕 ";
+  progressWrap.innerHTML = "";
   for(let i=0;i<SCORE_GOAL;i++) {
     const d = document.createElement("div");
-    d.className = "pip";
-    d.id = "pip"+i;
+    d.className = "pip"; d.id = "pip"+i;
     progressWrap.appendChild(d);
   }
 }
@@ -553,162 +639,42 @@ function updatePips() {
   }
 }
 
-// ─────────────────────────────────────────────
-//  BIRD RESET (no score reset — keep progress!)
-// ─────────────────────────────────────────────
-function resetBird() {
-  bird.y = 250; bird.vy = 0;
-  pipes = []; pipeTimer = 0;
-  // score stays!
-}
-
-// ─────────────────────────────────────────────
-//  ON SCORE
-// ─────────────────────────────────────────────
-function onScore() {
-  updatePips();
-  showToast(COMPLIMENTS[Math.min(score-1, COMPLIMENTS.length-1)]);
-  spawnHearts(bird.x, bird.y);
-  updateScoreBadge();
-
-  if(score >= SCORE_GOAL) {
-    finished = true;
-    setTimeout(showEnd, 600);
-  }
-}
-
-function updateScoreBadge() {
-  document.getElementById("scoreNum").textContent = score;
-}
-
-// ─────────────────────────────────────────────
-//  TOAST
-// ─────────────────────────────────────────────
-let toastTimer = null;
-const toast = document.getElementById("toast");
-function showToast(msg) {
-  toast.textContent = msg;
-  toast.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
-}
-
-// ─────────────────────────────────────────────
-//  HEART PARTICLES
-// ─────────────────────────────────────────────
-const particles = document.getElementById("particles");
-function spawnHearts(x, y) {
-  const emojis = ["❤️","💕","💖","🩷","💗"];
-  for(let i=0;i<8;i++) {
-    const h = document.createElement("div");
-    h.className = "ph";
-    h.textContent = emojis[Math.floor(Math.random()*emojis.length)];
-    h.style.left = (x - 30 + Math.random()*60) + "px";
-    h.style.top  = (y + 20) + "px";
-    h.style.animationDuration = (1.2 + Math.random()) + "s";
-    h.style.animationDelay = (Math.random()*0.4) + "s";
-    particles.appendChild(h);
-    setTimeout(() => h.remove(), 2400);
-  }
-}
-
-// ─────────────────────────────────────────────
-//  END SCREEN
-// ─────────────────────────────────────────────
-function showEnd() {
-  // Populate love list
-  const ul = document.getElementById("loveList");
-  ul.innerHTML = "";
-  THINGS_I_LOVE.forEach(item => {
-    const li = document.createElement("li");
-    li.innerHTML = `<span class="icon">${item.icon}</span><span>${item.text}</span>`;
-    ul.appendChild(li);
-  });
-  document.getElementById("endScreen").style.display = "flex";
-  // big burst
-  for(let i=0;i<30;i++) {
-    setTimeout(() => {
-      const rx = 50 + Math.random()*(window.innerWidth-100);
-      const ry = 100 + Math.random()*(window.innerHeight-200);
-      spawnHearts(rx, ry);
-    }, i*80);
-  }
-}
-
-// ─────────────────────────────────────────────
-//  INPUT
-// ─────────────────────────────────────────────
-function flap() {
-  if(!started || finished) return;
-  bird.vy = FLAP;
-}
-document.addEventListener("click", e => {
-  if(e.target.closest(".overlay")) return;
-  flap();
-});
+// ── INPUT ──
+function flap() { if(!started || finished) return; bird.vy = FLAP; }
+document.addEventListener("click", e => { if(e.target.closest(".overlay")) return; flap(); });
 document.addEventListener("touchstart", e => {
   if(e.target.closest(".overlay")) return;
-  e.preventDefault();
-  flap();
+  e.preventDefault(); flap();
 }, { passive:false });
 
 document.getElementById("startBtn").onclick = () => {
   document.getElementById("startScreen").style.display = "none";
-  document.getElementById("scoreBadge").style.display = "flex";
+  document.getElementById("scoreBadge").style.display  = "flex";
   document.getElementById("progressWrap").style.display = "flex";
+  bird.y = canvas.height / 2;
   buildPips();
   started = true;
 };
 
-// ─────────────────────────────────────────────
-//  GAME LOOP
-// ─────────────────────────────────────────────
+// ── LOOP ──
 function update() {
   if(!started || finished) return;
   frame++;
-
   bird.vy += G;
   if(bird.vy > MAX_VY) bird.vy = MAX_VY;
-  bird.y  += bird.vy;
-
+  bird.y += bird.vy;
   if(bird.y < 0 || bird.y > canvas.height) resetBird();
-
   updateClouds();
   updatePipes();
 }
 
 function draw() {
-  drawBackground();
-  clouds.forEach(drawCloud);
+  drawBg();
   drawPipes();
   drawBird();
-  drawScore();
 }
 
-function loop() {
-  update();
-  draw();
-  requestAnimationFrame(loop);
-}
-
-// ─────────────────────────────────────────────
-//  AMBIENT FLOATING HEARTS (background layer)
-// ─────────────────────────────────────────────
-function ambientHeart() {
-  const h = document.createElement("div");
-  h.className = "ph";
-  h.textContent = ["❤️","🩷","💕"][Math.floor(Math.random()*3)];
-  h.style.left = Math.random()*window.innerWidth + "px";
-  h.style.top  = (window.innerHeight + 20) + "px";
-  h.style.fontSize = (14 + Math.random()*14) + "px";
-  h.style.animationDuration = (2.5 + Math.random()*2) + "s";
-  h.style.opacity = "0.4";
-  const floaties = document.getElementById("floaties");
-  floaties.appendChild(h);
-  setTimeout(() => h.remove(), 5000);
-}
-setInterval(ambientHeart, 900);
-
+function loop() { update(); draw(); requestAnimationFrame(loop); }
 loop();
 </script>
 </body>
