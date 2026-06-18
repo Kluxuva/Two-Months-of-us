@@ -384,10 +384,11 @@ let pipes    = [];
 let frame    = 0;
 
 const bird = { x:90, y:250, vy:0, dead:false };
-const G = 0.18 * (canvas.height / 600);
-const FLAP    = -5.5;
+const G       = 0.12;
+const FLAP    = -4.0;
+const MAX_VY  = 4;
 const PIPE_W  = 68;
-const GAP     = 300;
+const GAP     = 400;
 const SPEED   = 1.7;
 
 // ─────────────────────────────────────────────
@@ -667,6 +668,7 @@ function update() {
   frame++;
 
   bird.vy += G;
+  if(bird.vy > MAX_VY) bird.vy = MAX_VY;
   bird.y  += bird.vy;
 
   if(bird.y < 0 || bird.y > canvas.height) resetBird();
