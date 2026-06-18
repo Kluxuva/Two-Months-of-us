@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Happy 2 Months Bachuu ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --pink1: #ff4f81;
+  --pink2: #ff8fab;
+  --pink3: #ffd6e7;
+  --pink4: #fff0f7;
+  --deep: #c9184a;
+  --soft: #ffb3c6;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+  background: var(--pink3);
+  touch-action: none;
+}
+
+canvas { display: block; }
+
+/* ── OVERLAYS ── */
+.overlay {
+  position: fixed; inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+/* ── START SCREEN ── */
+#startScreen {
+  background: linear-gradient(135deg, rgba(255,143,171,0.96) 0%, rgba(255,79,129,0.96) 100%);
+  flex-direction: column;
+  gap: 0;
+}
+
+.start-card {
+  background: white;
+  border-radius: 32px;
+  padding: 36px 28px 28px;
+  max-width: 360px;
+  width: 88%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(201,24,74,0.25);
+  position: relative;
+  animation: floatIn 0.7s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+@keyframes floatIn {
+  from { opacity:0; transform: translateY(60px) scale(0.85); }
+  to   { opacity:1; transform: translateY(0)   scale(1); }
+}
+
+.start-card .emoji-row {
+  font-size: 40px;
+  margin-bottom: 8px;
+  animation: bounce 1.5s infinite alternate ease-in-out;
+}
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+
+.start-card h1 {
+  font-family: 'Pacifico', cursive;
+  color: var(--pink1);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.start-card p {
+  color: #666;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.start-card .hint {
+  margin-top: 14px;
+  background: var(--pink4);
+  border-radius: 16px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--deep);
+  font-weight: 700;
+}
+
+.btn {
+  margin-top: 22px;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff4f81, #ff8fab);
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255,79,129,0.4);
+  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.5px;
+  display: block;
+  width: 100%;
+}
+.btn:active { transform: scale(0.96); box-shadow: 0 4px 10px rgba(255,79,129,0.3); }
+
+/* ── END SCREEN ── */
+#endScreen {
+  display: none;
+  background: linear-gradient(135deg, rgba(255,175,200,0.97) 0%, rgba(255,79,129,0.97) 100%);
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 20px 0;
+}
+
+.end-card {
+  background: white;
+  border-radius: 32px;
+  padding: 36px 28px 32px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(201,24,74,0.3);
+  animation: popIn 0.6s cubic-bezier(.34,1.56,.64,1) both;
+  position: relative;
+  overflow: hidden;
+}
+@keyframes popIn {
+  from { opacity:0; transform: scale(0.7) rotate(-3deg); }
+  to   { opacity:1; transform: scale(1) rotate(0deg); }
+}
+
+.confetti-strip {
+  position: absolute; top:0; left:0; right:0;
+  height: 8px;
+  background: repeating-linear-gradient(90deg,
+    #ff4f81 0px, #ff4f81 12px,
+    #ffb3c6 12px, #ffb3c6 24px,
+    #ff8fab 24px, #ff8fab 36px,
+    #fff 36px, #fff 48px);
+}
+
+.end-card h1 {
+  font-family: 'Pacifico', cursive;
+  color: var(--pink1);
+  font-size: 26px;
+  margin: 12px 0 6px;
+}
+
+.love-list {
+  list-style: none;
+  text-align: left;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.love-list li {
+  background: var(--pink4);
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.5s ease both;
+}
+.love-list li:nth-child(1) { animation-delay:0.1s; }
+.love-list li:nth-child(2) { animation-delay:0.2s; }
+.love-list li:nth-child(3) { animation-delay:0.3s; }
+.love-list li:nth-child(4) { animation-delay:0.4s; }
+@keyframes slideIn {
+  from { opacity:0; transform: translateX(-20px); }
+  to   { opacity:1; transform: translateX(0); }
+}
+.love-list .icon { font-size: 22px; flex-shrink: 0; }
+
+.end-tagline {
+  font-family: 'Pacifico', cursive;
+  color: var(--deep);
+  font-size: 20px;
+  margin-top: 18px;
+}
+
+/* ── ANIMATIONS ON CANVAS LAYER ── */
+#floaties {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── COMPLIMENT TOAST ── */
+#toast {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  background: linear-gradient(135deg, #ff4f81, #c9184a);
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  z-index: 30;
+  box-shadow: 0 8px 24px rgba(255,79,129,0.5);
+  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), opacity 0.3s;
+  opacity: 0;
+  white-space: nowrap;
+}
+#toast.show {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+/* ── HEARTS PARTICLE LAYER ── */
+#particles {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+}
+.ph {
+  position: absolute;
+  font-size: 18px;
+  animation: riseHeart 2s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes riseHeart {
+  0%   { opacity:1; transform: translateY(0) scale(1) rotate(0deg); }
+  100% { opacity:0; transform: translateY(-120px) scale(0.5) rotate(30deg); }
+}
+
+/* ── TEDDY / CAKE END ANIM ── */
+.big-emoji-row {
+  font-size: 48px;
+  line-height: 1;
+  margin: 8px 0 4px;
+  animation: wiggle 1.2s infinite alternate ease-in-out;
+}
+@keyframes wiggle {
+  0%  { transform: rotate(-6deg) scale(1); }
+  100%{ transform: rotate(6deg) scale(1.08); }
+}
+
+/* ── SCORE BG ── */
+#scoreBadge {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: white;
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-family: 'Pacifico', cursive;
+  color: var(--pink1);
+  font-size: 20px;
+  box-shadow: 0 4px 16px rgba(255,79,129,0.25);
+  z-index: 10;
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── PROGRESS BAR ── */
+#progressWrap {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.7);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--deep);
+  z-index: 10;
+  display: none;
+  gap: 6px;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(255,79,129,0.18);
+  max-width: 90vw;
+}
+.pip {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #ffd6e7;
+  border: 2px solid var(--soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  transition: background 0.4s, border-color 0.4s;
+  flex-shrink: 0;
+}
+.pip.done { background: var(--pink1); border-color: var(--deep); }
+</style>
+</head>
+<body>
+
+<canvas id="game"></canvas>
+<div id="floaties"></div>
+<div id="particles"></div>
+<div id="toast"></div>
+
+<div id="scoreBadge">❤️ <span id="scoreNum">0</span></div>
+
+<div id="progressWrap"></div>
+
+<!-- START SCREEN -->
+<div class="overlay" id="startScreen">
+  <div class="start-card">
+    <div class="emoji-row">❤️🐣❤️</div>
+    <h1>Hi Bachuu! 🥺</h1>
+    <p>A tiny love adventure<br>just for you ✨</p>
+    <div class="hint">
+      Tap / click anywhere to fly 💖<br>
+      Score <b>7</b> to unlock your surprise 🎁
+    </div>
+    <button class="btn" id="startBtn">Let's Fly! ❤️</button>
+  </div>
+</div>
+
+<!-- END SCREEN -->
+<div class="overlay" id="endScreen">
+  <div class="end-card">
+    <div class="confetti-strip"></div>
+    <div class="big-emoji-row">🎂🧸🎂</div>
+    <h1>Happy 2 Months Bachuu! 🥺❤️</h1>
+    <p style="color:#888;font-size:14px;margin-bottom:4px">You made it! Here's everything I love about you:</p>
+    <ul class="love-list" id="loveList"></ul>
+    <p style="color:#aaa;font-size:13px;line-height:1.6;margin-top:6px">
+      These two months have been the most beautiful ones.<br>
+      Thank you for being <em>you</em>. 🫶
+    </p>
+    <p class="end-tagline">I Love You ❤️</p>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+//  CONFIG
+// ─────────────────────────────────────────────
+const SCORE_GOAL = 7;
+
+const THINGS_I_LOVE = [
+  { icon:"👀", text:"Your eyes — they literally sparkle" },
+  { icon:"😂", text:"Your laugh that makes me laugh" },
+  { icon:"🫂", text:"How your hugs feel like home" },
+  { icon:"💬", text:"The way you text me good morning" },
+  { icon:"🌙", text:"Late night calls with you" },
+  { icon:"😊", text:"Your smile that fixes everything" },
+  { icon:"💖", text:"The way you care so deeply" },
+];
+
+const COMPLIMENTS = [
+  "Your eyes are ✨",
+  "That laugh tho 😂💕",
+  "Hugs level: 100 🫂",
+  "Good morning texts 🌅",
+  "Late night calls 🌙",
+  "That smile 😊💖",
+  "You care so much 💝",
+];
+
+// ─────────────────────────────────────────────
+//  CANVAS SETUP
+// ─────────────────────────────────────────────
+const canvas = document.getElementById("game");
+const ctx    = canvas.getContext("2d");
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener("resize", resize);
+
+// ─────────────────────────────────────────────
+//  GAME STATE
+// ─────────────────────────────────────────────
+let started  = false;
+let finished = false;
+let score    = 0;
+let pipes    = [];
+let frame    = 0;
+
+const bird = { x:90, y:250, vy:0, dead:false };
+const G       = 0.18;
+const FLAP    = -5.5;
+const PIPE_W  = 68;
+const GAP     = 300;
+const SPEED   = 1.7;
+
+// ─────────────────────────────────────────────
+//  BACKGROUND ELEMENTS
+// ─────────────────────────────────────────────
+const clouds = [];
+function initClouds() {
+  for(let i=0;i<6;i++) clouds.push({
+    x: Math.random()*canvas.width,
+    y: 40 + Math.random()*200,
+    s: 0.7 + Math.random()*0.6,
+    spd: 0.2 + Math.random()*0.3
+  });
+}
+initClouds();
+
+function updateClouds() {
+  clouds.forEach(c => { c.x -= c.spd; if(c.x < -120) c.x = canvas.width+80; });
+}
+
+function drawBackground() {
+  const g = ctx.createLinearGradient(0,0,0,canvas.height);
+  g.addColorStop(0,"#ffe0ee");
+  g.addColorStop(1,"#fff5f9");
+  ctx.fillStyle = g;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  // ambient hearts
+  ctx.save();
+  ctx.globalAlpha = 0.07;
+  ctx.font = "30px Arial";
+  const positions = [[80,120],[canvas.width*0.4,200],[canvas.width*0.7,80],[canvas.width-60,180]];
+  positions.forEach(([x,y]) => {
+    const t = Math.sin(frame*0.025 + x)*6;
+    ctx.fillText("❤️", x, y+t);
+  });
+  ctx.restore();
+}
+
+function drawCloud(c) {
+  ctx.save();
+  ctx.translate(c.x, c.y);
+  ctx.scale(c.s, c.s);
+  ctx.fillStyle = "rgba(255,255,255,0.8)";
+  ctx.beginPath();
+  ctx.arc(0,0,30,0,Math.PI*2);
+  ctx.arc(28,-10,24,0,Math.PI*2);
+  ctx.arc(55,0,28,0,Math.PI*2);
+  ctx.arc(28,10,22,0,Math.PI*2);
+  ctx.fill();
+  ctx.restore();
+}
+
+// ─────────────────────────────────────────────
+//  BIRD (heart)
+// ─────────────────────────────────────────────
+function drawBird() {
+  const angle = Math.min(Math.max(bird.vy * 3, -40), 50);
+  ctx.save();
+  ctx.translate(bird.x, bird.y);
+  ctx.rotate(angle * Math.PI/180);
+  const pulse = 1 + Math.sin(frame * 0.1) * 0.06;
+  ctx.scale(pulse, pulse);
+  ctx.font = "40px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("❤️", 0, 0);
+  ctx.restore();
+}
+
+// ─────────────────────────────────────────────
+//  PIPES
+// ─────────────────────────────────────────────
+function mkPipe() {
+  const top = 80 + Math.random()*(canvas.height - GAP - 160);
+  pipes.push({ x: canvas.width+20, top, bottom: top+GAP, passed:false });
+}
+
+let pipeTimer = 0;
+const PIPE_INTERVAL = 150; // frames
+
+function updatePipes() {
+  pipeTimer++;
+  if(pipeTimer >= PIPE_INTERVAL) { mkPipe(); pipeTimer=0; }
+
+  pipes.forEach(p => {
+    p.x -= SPEED;
+    if(!p.passed && p.x + PIPE_W < bird.x) {
+      p.passed = true;
+      score++;
+      onScore();
+    }
+  });
+
+  // collision
+  pipes.forEach(p => {
+    if(bird.x+16 > p.x && bird.x-16 < p.x+PIPE_W &&
+      (bird.y-16 < p.top || bird.y+16 > p.bottom)) {
+      resetBird();
+    }
+  });
+
+  pipes = pipes.filter(p => p.x > -120);
+}
+
+function drawPipes() {
+  pipes.forEach(p => {
+    // top pipe
+    const gt = ctx.createLinearGradient(p.x,0,p.x+PIPE_W,0);
+    gt.addColorStop(0,"#ff6fa1");
+    gt.addColorStop(0.5,"#ff8fab");
+    gt.addColorStop(1,"#ffb3c6");
+    ctx.fillStyle = gt;
+    ctx.beginPath();
+    ctx.roundRect(p.x, 0, PIPE_W, p.top, [0,0,14,14]);
+    ctx.fill();
+
+    // heart on cap
+    ctx.font = "20px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("💕", p.x + PIPE_W/2, p.top - 10);
+
+    // bottom pipe
+    const gb = ctx.createLinearGradient(p.x,0,p.x+PIPE_W,0);
+    gb.addColorStop(0,"#ff6fa1");
+    gb.addColorStop(0.5,"#ff8fab");
+    gb.addColorStop(1,"#ffb3c6");
+    ctx.fillStyle = gb;
+    ctx.beginPath();
+    ctx.roundRect(p.x, p.bottom, PIPE_W, canvas.height-p.bottom, [14,14,0,0]);
+    ctx.fill();
+
+    ctx.font = "20px Arial";
+    ctx.fillText("💕", p.x + PIPE_W/2, p.bottom + 26);
+  });
+}
+
+// ─────────────────────────────────────────────
+//  SCORE
+// ─────────────────────────────────────────────
+function drawScore() {
+  document.getElementById("scoreNum").textContent = score;
+}
+
+// ─────────────────────────────────────────────
+//  PROGRESS PIPS
+// ─────────────────────────────────────────────
+const progressWrap = document.getElementById("progressWrap");
+function buildPips() {
+  progressWrap.innerHTML = "💕 ";
+  for(let i=0;i<SCORE_GOAL;i++) {
+    const d = document.createElement("div");
+    d.className = "pip";
+    d.id = "pip"+i;
+    progressWrap.appendChild(d);
+  }
+}
+function updatePips() {
+  for(let i=0;i<SCORE_GOAL;i++) {
+    const p = document.getElementById("pip"+i);
+    if(p) p.className = i < score ? "pip done" : "pip";
+  }
+}
+
+// ─────────────────────────────────────────────
+//  BIRD RESET (no score reset — keep progress!)
+// ─────────────────────────────────────────────
+function resetBird() {
+  bird.y = 250; bird.vy = 0;
+  pipes = []; pipeTimer = 0;
+  // score stays!
+}
+
+// ─────────────────────────────────────────────
+//  ON SCORE
+// ─────────────────────────────────────────────
+function onScore() {
+  updatePips();
+  showToast(COMPLIMENTS[Math.min(score-1, COMPLIMENTS.length-1)]);
+  spawnHearts(bird.x, bird.y);
+  updateScoreBadge();
+
+  if(score >= SCORE_GOAL) {
+    finished = true;
+    setTimeout(showEnd, 600);
+  }
+}
+
+function updateScoreBadge() {
+  document.getElementById("scoreNum").textContent = score;
+}
+
+// ─────────────────────────────────────────────
+//  TOAST
+// ─────────────────────────────────────────────
+let toastTimer = null;
+const toast = document.getElementById("toast");
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
+}
+
+// ─────────────────────────────────────────────
+//  HEART PARTICLES
+// ─────────────────────────────────────────────
+const particles = document.getElementById("particles");
+function spawnHearts(x, y) {
+  const emojis = ["❤️","💕","💖","🩷","💗"];
+  for(let i=0;i<8;i++) {
+    const h = document.createElement("div");
+    h.className = "ph";
+    h.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    h.style.left = (x - 30 + Math.random()*60) + "px";
+    h.style.top  = (y + 20) + "px";
+    h.style.animationDuration = (1.2 + Math.random()) + "s";
+    h.style.animationDelay = (Math.random()*0.4) + "s";
+    particles.appendChild(h);
+    setTimeout(() => h.remove(), 2400);
+  }
+}
+
+// ─────────────────────────────────────────────
+//  END SCREEN
+// ─────────────────────────────────────────────
+function showEnd() {
+  // Populate love list
+  const ul = document.getElementById("loveList");
+  ul.innerHTML = "";
+  THINGS_I_LOVE.forEach(item => {
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="icon">${item.icon}</span><span>${item.text}</span>`;
+    ul.appendChild(li);
+  });
+  document.getElementById("endScreen").style.display = "flex";
+  // big burst
+  for(let i=0;i<30;i++) {
+    setTimeout(() => {
+      const rx = 50 + Math.random()*(window.innerWidth-100);
+      const ry = 100 + Math.random()*(window.innerHeight-200);
+      spawnHearts(rx, ry);
+    }, i*80);
+  }
+}
+
+// ─────────────────────────────────────────────
+//  INPUT
+// ─────────────────────────────────────────────
+function flap() {
+  if(!started || finished) return;
+  bird.vy = FLAP;
+}
+document.addEventListener("click", e => {
+  if(e.target.closest(".overlay")) return;
+  flap();
+});
+document.addEventListener("touchstart", e => {
+  if(e.target.closest(".overlay")) return;
+  e.preventDefault();
+  flap();
+}, { passive:false });
+
+document.getElementById("startBtn").onclick = () => {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("scoreBadge").style.display = "flex";
+  document.getElementById("progressWrap").style.display = "flex";
+  buildPips();
+  started = true;
+};
+
+// ─────────────────────────────────────────────
+//  GAME LOOP
+// ─────────────────────────────────────────────
+function update() {
+  if(!started || finished) return;
+  frame++;
+
+  bird.vy += G;
+  bird.y  += bird.vy;
+
+  if(bird.y < 0 || bird.y > canvas.height) resetBird();
+
+  updateClouds();
+  updatePipes();
+}
+
+function draw() {
+  drawBackground();
+  clouds.forEach(drawCloud);
+  drawPipes();
+  drawBird();
+  drawScore();
+}
+
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+// ─────────────────────────────────────────────
+//  AMBIENT FLOATING HEARTS (background layer)
+// ─────────────────────────────────────────────
+function ambientHeart() {
+  const h = document.createElement("div");
+  h.className = "ph";
+  h.textContent = ["❤️","🩷","💕"][Math.floor(Math.random()*3)];
+  h.style.left = Math.random()*window.innerWidth + "px";
+  h.style.top  = (window.innerHeight + 20) + "px";
+  h.style.fontSize = (14 + Math.random()*14) + "px";
+  h.style.animationDuration = (2.5 + Math.random()*2) + "s";
+  h.style.opacity = "0.4";
+  const floaties = document.getElementById("floaties");
+  floaties.appendChild(h);
+  setTimeout(() => h.remove(), 5000);
+}
+setInterval(ambientHeart, 900);
+
+loop();
+</script>
+</body>
+</html>
