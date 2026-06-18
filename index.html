@@ -338,7 +338,7 @@ canvas { display: block; }
 <div id="particles"></div>
 <div id="toast"></div>
 
-<div id="scoreBadge"><span id="scoreNum">0</span> <span style="font-size:13px;color:var(--muted);font-style:normal;font-family:'DM Sans'">/ 7</span></div>
+<div id="scoreBadge"><span id="scoreNum">0</span> <span style="font-size:13px;color:var(--muted);font-style:normal;font-family:'DM Sans'">/ 12</span></div>
 <div id="progressWrap"></div>
 
 <!-- START SCREEN -->
@@ -354,7 +354,7 @@ canvas { display: block; }
     <div class="divider"></div>
     <p class="hint-text">
       Tap to fly through the petals<br>
-      Score <strong>7</strong> to unlock your surprise
+      Score <strong>12</strong> to unlock your surprise
     </p>
     <button class="btn" id="startBtn">Begin</button>
   </div>
@@ -375,16 +375,21 @@ canvas { display: block; }
 </div>
 
 <script>
-const SCORE_GOAL = 7;
+const SCORE_GOAL = 12;
 
 const THINGS_I_LOVE = [
-  { num:"i",   text:"Your eyes — they literally sparkle" },
-  { num:"ii",  text:"Your laugh that makes me laugh too" },
-  { num:"iii", text:"How your hugs feel like home" },
-  { num:"iv",  text:"The way you text me good morning" },
-  { num:"v",   text:"Late night calls with you" },
-  { num:"vi",  text:"Your smile that fixes everything" },
-  { num:"vii", text:"The way you care so deeply" },
+  { num:"i",    text:"Your eyes — they literally sparkle" },
+  { num:"ii",   text:"Your laugh that makes me laugh too" },
+  { num:"iii",  text:"How your hugs feel like home" },
+  { num:"iv",   text:"The way you text me good morning" },
+  { num:"v",    text:"Late night calls with you" },
+  { num:"vi",   text:"Your smile that fixes everything" },
+  { num:"vii",  text:"The way you care so deeply" },
+  { num:"viii", text:"Your hands — so soft in mine" },
+  { num:"ix",   text:"Your kisses that say more than words" },
+  { num:"x",    text:"The way you look at me" },
+  { num:"xi",   text:"How pretty you are, effortlessly" },
+  { num:"xii",  text:"Every little thing about you" },
 ];
 
 const COMPLIMENTS = [
@@ -395,6 +400,11 @@ const COMPLIMENTS = [
   "late night calls",
   "that smile",
   "the way you care",
+  "your hands",
+  "your kisses",
+  "the way you look at me",
+  "effortlessly pretty",
+  "everything about you",
 ];
 
 // ── CANVAS ──
